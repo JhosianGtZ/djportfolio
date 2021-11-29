@@ -8,7 +8,7 @@ from django.conf import settings
 from portfolio import views
 
 urlpatterns = [    
-    path("", views.home, name="home"),
+    path("/", views.home, name="home"),
     path('admin/', admin.site.urls),
     path("portfolio/", include('portfolio.urls')),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
