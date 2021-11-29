@@ -22,13 +22,16 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/3.2/howto/deployment/checklist/
 
-from .settings_production import *
+import dj_database_url
+from decouple import config
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = config('DJANGO_DEBUG', default=True, cast=bool)
+#DEBUG = True
 
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = config('SECRET_KEY', default="django-insecure-ylrbyza^y0(bibaog4c_qku*so$dd=+6bayj3wgs5oxsiqg4=4")
+#SECRET_KEY = 'django-insecure-ylrbyza^y0(bibaog4c_qku*so$dd=+6bayj3wgs5oxsiqg4=4'
 
 
 ALLOWED_HOSTS = ['*']
@@ -128,7 +131,11 @@ STATIC_URL = "/static/"
 
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
-STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+
+STATICFILES_DIRS = (
+    os.path.join(BASE_DIR, 'static'),
+)
 
 MEDIA_URL = "/media/"
 
