@@ -126,7 +126,9 @@ USE_TZ = True
 MEDIA_ROOT = BASE_DIR / 'static/media/'
 
 MEDIA_URL = "/static/media/"
+ 
 
+import os
 
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
