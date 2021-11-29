@@ -2,9 +2,9 @@ from django.shortcuts import render, get_object_or_404
 from .models import Project
 
 
-def home(request):
+def index(request):
     projects = Project.objects.all()
-    return render(request, "home.html", {'projects': projects})
+    return render(request, "index.html", {'projects': projects})
 
 
 def detail(request, project_id):
